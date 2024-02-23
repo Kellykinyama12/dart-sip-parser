@@ -11,6 +11,8 @@ import 'package:dart_sip_parser/sip_to.dart';
 import 'package:dart_sip_parser/sip_via.dart';
 import 'package:dart_sip_parser/sip_www_auth.dart';
 import 'sip_auth.dart';
+import 'sip_message_types.dart';
+import 'sip_message_headers.dart';
 
 class SipMsg {
   void Parse(String v) {
