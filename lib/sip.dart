@@ -148,6 +148,8 @@ class SipMsg {
   sipWwwAuth wwwAuth = sipWwwAuth();
 
   SdpMsg Sdp = SdpMsg();
+
+  sockaddr_in? src;
 }
 
 class SdpMsg {
@@ -159,4 +161,11 @@ class SdpMsg {
 class sipVal {
   String? Value; // Sip Value
   String? Src; // Full source if needed
+}
+
+class sockaddr_in {
+  sockaddr_in(this.addr, this.port, this.transport);
+  String addr;
+  String transport;
+  int port;
 }
