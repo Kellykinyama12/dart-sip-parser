@@ -149,7 +149,7 @@ class SipMsg {
 
   SdpMsg Sdp = SdpMsg();
 
-  sockaddr_in? src;
+  sockaddr_in? transport;
 }
 
 class SdpMsg {
