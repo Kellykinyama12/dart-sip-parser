@@ -150,6 +150,8 @@ class SipMsg {
   SdpMsg Sdp = SdpMsg();
 
   sockaddr_in? transport;
+
+  String? src;
 }
 
 class SdpMsg {
