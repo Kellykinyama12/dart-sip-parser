@@ -14,6 +14,7 @@ import 'package:dart_sip_parser/sip_enums.dart';
 class sipVia {
   void parseSipVia(String v) {
     var pos = 0;
+    Src = v;
     ParseState state = ParseState.FIELD_BASE;
 
     // Init the output area
