@@ -10,4 +10,5 @@ class SipMessageHeaders {
   static String CONTENT_LENGTH = "Content-Length";
 
   static String HEADERS_DELIMETER = "\r\n";
+  static String UNAUTHORIZED = "SIP/2.0 401 Unauthorized";
 }
