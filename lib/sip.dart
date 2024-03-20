@@ -102,8 +102,10 @@ class SipMsg {
           //fmt.Println(i, spos, string(lhdr), string(lval))
           switch (lhdr) {
             case "m":
+              Sdp.MediaDesc = sdpMediaDesc();
               Sdp.MediaDesc!.parseSdpMediaDesc(lval);
             case "c":
+              Sdp.ConnData = sdpConnData();
               Sdp.ConnData!.parseSdpConnectionData(lval);
             case "a":
               var tmpAttrib = sdpAttrib();
