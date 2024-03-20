@@ -13,4 +13,5 @@ class SipMessageTypes {
   static String ACK = "ACK";
   static String BYE = "BYE";
   static String NOT_FOUND = "SIP/2.0 404 Not Found";
+  static String UNAUTHORIZED = "SIP/2.0 401 Unauthorized";
 }
