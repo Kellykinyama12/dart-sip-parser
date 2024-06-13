@@ -16,7 +16,11 @@ import 'sip_message_headers.dart';
 
 class SipMsg {
   void Parse(String v) {
+<<<<<<< HEAD
     Src = v;
+=======
+    src = v;
+>>>>>>> 09421a95bf3fab21a20881bb18369e355979a3ab
     // Allow multiple vias and media Attribs
     var via_idx = 0;
     Via = []; //make([]sipVia, 0, 8);
@@ -113,8 +117,10 @@ class SipMsg {
           //fmt.Println(i, spos, string(lhdr), string(lval))
           switch (lhdr) {
             case "m":
+              Sdp.MediaDesc = sdpMediaDesc();
               Sdp.MediaDesc!.parseSdpMediaDesc(lval);
             case "c":
+              Sdp.ConnData = sdpConnData();
               Sdp.ConnData!.parseSdpConnectionData(lval);
             case "a":
               var tmpAttrib = sdpAttrib();
@@ -177,6 +183,10 @@ class SipMsg {
   sipWwwAuth wwwAuth = sipWwwAuth();
 
   SdpMsg Sdp = SdpMsg();
+
+  sockaddr_in? transport;
+
+  String? src;
 }
 
 class SdpMsg {
@@ -189,4 +199,11 @@ class SdpMsg {
 class sipVal {
   String? Value; // Sip Value
   String? Src; // Full source if needed
+}
+
+class sockaddr_in {
+  sockaddr_in(this.addr, this.port, this.transport);
+  String addr;
+  String transport;
+  int port;
 }

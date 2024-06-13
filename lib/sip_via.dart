@@ -15,6 +15,7 @@ class sipVia {
   void parseSipVia(String v) {
     Src = v;
     var pos = 0;
+    Src = v;
     ParseState state = ParseState.FIELD_BASE;
 
     // Init the output area
@@ -42,7 +43,7 @@ class sipVia {
         case ParseState.FIELD_BASE:
           if (v[pos] != ' ') {
             // Not a space
-            if (v.substring(pos, pos + 8) == "SIP/2.0/") {
+            if (v.length > pos + 8 && v.substring(pos, pos + 8) == "SIP/2.0/") {
               // Transport type
               state = ParseState.FIELD_HOST;
               pos = pos + 8;
@@ -68,31 +69,32 @@ class sipVia {
               }
             }
             // Look for a Branch identifier
-            if (v.substring(pos, pos + 7) == "branch=") {
+            if (v.length > pos + 7 && v.substring(pos, pos + 7) == "branch=") {
               state = ParseState.FIELD_BRANCH;
               pos = pos + 7;
               continue;
             }
             // Look for a Rport identifier
-            if (v.substring(pos, pos + 6) == "rport=") {
+            if (v.length > pos + 6 && v.substring(pos, pos + 6) == "rport=") {
               state = ParseState.FIELD_RPORT;
               pos = pos + 6;
               continue;
             }
             // Look for a maddr identifier
-            if (v.substring(pos, pos + 6) == "maddr=") {
+            if (v.length > pos + 6 && v.substring(pos, pos + 6) == "maddr=") {
               state = ParseState.FIELD_MADDR;
               pos = pos + 6;
               continue;
             }
             // Look for a ttl identifier
-            if (v.substring(pos, pos + 4) == "ttl=") {
+            if (v.length > pos + 4 && v.substring(pos, pos + 4) == "ttl=") {
               state = ParseState.FIELD_TTL;
               pos = pos + 4;
               continue;
             }
             // Look for a recevived identifier
-            if (v.substring(pos, pos + 9) == "received=") {
+            if (v.length > pos + 9 &&
+                v.substring(pos, pos + 9) == "received=") {
               state = ParseState.FIELD_REC;
               pos = pos + 9;
               continue;

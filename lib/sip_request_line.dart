@@ -10,7 +10,10 @@ import 'package:dart_sip_parser/sip_enums.dart';
 class sipReq {
   parseSipReq(String v) {
     Src = v;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 09421a95bf3fab21a20881bb18369e355979a3ab
     var pos = 0;
     ParseState state = ParseState.FIELD_NULL;
 
@@ -29,9 +32,9 @@ class sipReq {
     // 	Src = v;
     // }
     //print("Request line: $v");
-    print("""
-Parsing Request line: ...
-    """);
+//     print("""
+// Parsing Request line: ...
+//     """);
 
     // Loop through the bytes making up the line
     while (pos < v.length) {

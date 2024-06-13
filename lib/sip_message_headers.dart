@@ -9,5 +9,5 @@ class SipMessageHeaders {
   static String CONTACT = "Contact";
   static String CONTENT_LENGTH = "Content-Length";
 
-  static String HEADERS_DELIMETER = r"\r\n";
+  static String HEADERS_DELIMETER = "\r\n";
 }

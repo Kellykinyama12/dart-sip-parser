@@ -13,5 +13,7 @@ class SipMessageTypes {
   static String ACK = "ACK";
   static String BYE = "BYE";
   static String NOT_FOUND = "SIP/2.0 404 Not Found";
-  static String NOT_IMPLEMENTED = "501 Not Implemented";
+  static String UNAUTHORIZED = "SIP/2.0 401 Unauthorized";
+
+  static String NOT_IMPLEMENTED = "SIP/2.0 501 Not Implemented";
 }
