@@ -15,6 +15,7 @@ import 'package:dart_sip_parser/sip_enums.dart';
 
 class sipWwwAuth {
   void parseSipAuth(String v) {
+    Src = v;
     var pos = 0;
     ParseState state = ParseState.FIELD_AUTHORIZATION;
 
@@ -109,4 +110,5 @@ class sipWwwAuth {
   String? realm; // Cseq Method
   String? nonce; // Full source if needed
   String? response;
+  String? Src; // Full source if needed
 }

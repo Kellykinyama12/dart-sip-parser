@@ -12,6 +12,7 @@ import 'package:dart_sip_parser/sip_enums.dart';
 
 class sdpConnData {
   void parseSdpConnectionData(String v) {
+    Src = v;
     var pos = 0;
     ParseState state = ParseState.FIELD_BASE;
 

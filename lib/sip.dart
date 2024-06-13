@@ -16,6 +16,7 @@ import 'sip_message_headers.dart';
 
 class SipMsg {
   void Parse(String v) {
+    Src = v;
     // Allow multiple vias and media Attribs
     var via_idx = 0;
     Via = []; //make([]sipVia, 0, 8);
@@ -23,6 +24,17 @@ class SipMsg {
     Sdp.Attrib = []; //make([]sdpAttrib, 0, 8)
 
     var hdrDelimeter = SipMessageHeaders.HEADERS_DELIMETER;
+
+    int pos = v.indexOf(SipMessageHeaders.HEADERS_DELIMETER);
+    // print(_messageStr);
+    // print(msg);
+    // print(" index: $pos");
+    if (pos == -1) return;
+    header = v.substring(0, pos);
+
+    v = v.substring(pos + SipMessageHeaders.HEADERS_DELIMETER.length);
+
+    if (header!.indexOf(" ") == -1) return;
 
     //lines := bytes.Split(v, []byte("\r\n"))
     var lines = v.split(hdrDelimeter);
@@ -130,6 +142,21 @@ class SipMsg {
     return (i: -1, dtype: null); //, ' '
   }
 
+  void setHeader(String value) {
+    // print("Setting header");
+    int headerPos = Src!.indexOf(header!);
+
+    //print("header position $headerPos for $_header to be replaced with $value");
+    if (headerPos == -1) {
+      // print("Header not found");
+      return;
+    }
+    Src = Src!.replaceFirst(header!, value, headerPos);
+    header = value;
+
+    // print(_messageStr);
+  }
+
   sipReq Req = sipReq();
   sipFrom From = sipFrom();
   sipTo To = sipTo();
@@ -144,6 +171,8 @@ class SipMsg {
   sipVal ContLen = sipVal();
   sipAuth Auth = sipAuth();
   sipProxyAuth ProxyAuth = sipProxyAuth();
+  String? Src; // Full source if needed
+  String? header;
 
   sipWwwAuth wwwAuth = sipWwwAuth();
 
@@ -154,6 +183,7 @@ class SdpMsg {
   sdpMediaDesc? MediaDesc;
   List<sdpAttrib>? Attrib;
   sdpConnData? ConnData;
+  String? Src; // Full source if needed
 }
 
 class sipVal {

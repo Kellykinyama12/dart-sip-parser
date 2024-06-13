@@ -15,6 +15,8 @@ import 'package:dart_sip_parser/sip_enums.dart';
 
 class sipProxyAuth {
   void parseSipProxyAuth(String v) {
+    Src = v;
+
     var pos = 0;
     ParseState state = ParseState.FIELD_AUTHORIZATION;
 
@@ -109,4 +111,5 @@ class sipProxyAuth {
   String? realm; // Cseq Method
   String? nonce; // Full source if needed
   String? response;
+  String? Src; // Full source if needed
 }
