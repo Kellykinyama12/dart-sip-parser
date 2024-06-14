@@ -110,9 +110,5 @@ class sipAuth {
   String? realm; // Cseq Method
   String? nonce; // Full source if needed
   String? response;
-<<<<<<< HEAD
   String? Src; // Full source if needed
-=======
-  String? Src;
->>>>>>> 09421a95bf3fab21a20881bb18369e355979a3ab
 }

@@ -16,11 +16,7 @@ import 'sip_message_headers.dart';
 
 class SipMsg {
   void Parse(String v) {
-<<<<<<< HEAD
-    Src = v;
-=======
     src = v;
->>>>>>> 09421a95bf3fab21a20881bb18369e355979a3ab
     // Allow multiple vias and media Attribs
     var via_idx = 0;
     Via = []; //make([]sipVia, 0, 8);
