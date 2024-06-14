@@ -38,6 +38,7 @@ class SipMsg {
 
     //lines := bytes.Split(v, []byte("\r\n"))
     var lines = v.split(hdrDelimeter);
+    print("Lines length: ${lines.length}");
     //print("Lines length: ${lines.length}");
     //print("Index of Headers delimiter: ${v.indexOf(delimeter)}");
 
